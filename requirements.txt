@@ -1,0 +1,35 @@
+# AI Farm Intelligence Network - backend runtime dependencies.
+#
+# Pinned to the versions the mock-mode test suite is green on. The system runs
+# as a modular monolith: one process, one dependency graph.
+
+# --- Web framework ----------------------------------------------------------
+fastapi==0.141.1
+starlette==1.7.0
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+
+# --- Configuration and validation ------------------------------------------
+pydantic==2.13.5
+pydantic-settings==2.15.0
+python-dotenv==1.2.3
+PyYAML==6.0.3
+
+# --- Vision and geometry ---------------------------------------------------
+# opencv-python-headless: no GUI libraries in a container.
+opencv-python-headless==5.0.0.93
+numpy==2.5.3
+shapely==2.1.2
+
+# --- Google Cloud (only used when MOCK_SERVICES=false) ---------------------
+firebase-admin==7.7.0
+google-cloud-firestore==2.32.0
+google-cloud-storage==3.15.0
+google-cloud-speech==2.40.0
+google-cloud-translate==3.27.0
+google-cloud-texttospeech==2.37.0
+google-genai==2.25.0
+requests==2.34.2
+
+# --- Tests -----------------------------------------------------------------
+pytest==9.1.1

@@ -1,0 +1,223 @@
+# Threshold + weight configuration for mango.
+#
+# ---------------------------------------------------------------------------
+# CONFIGURABLE HEURISTIC v0 - NOT AGRONOMIC TRUTH
+# ---------------------------------------------------------------------------
+# Every number in this file is a hackathon-grade heuristic taken from
+# Section 8 ("Decision Logic") of the project documentation. Fusion weights,
+# ripeness cutoffs and days-to-harvest bands have NOT been validated against
+# labeled harvest data or by an agronomist. They are kept in YAML (not Python)
+# so they can be tuned, audited and swapped per crop without touching code.
+# The API responses carry `heuristic_version: "heuristic-v0"` so a consumer
+# never mistakes these values for validated agronomy.
+# ---------------------------------------------------------------------------
+
+crop: mango
+heuristic_version: "heuristic-v0"
+validated: false
+
+disclaimer: >-
+  Configurable heuristic v0. Fusion weights, ripeness thresholds and
+  days-to-harvest bands are unvalidated heuristics and must be validated with
+  labeled harvest data and agronomist review before real-world use.
+
+# --- Boundary validation ---------------------------------------------------
+boundary:
+  min_vertices: 4
+  require_closed_ring: true
+  allow_multipolygon: true
+  lon_range: [-180.0, 180.0]
+  lat_range: [-90.0, 90.0]
+  min_area_hectares: 0.01
+  max_area_hectares: 5000.0
+
+# --- Zone grid -------------------------------------------------------------
+# Section 7 M1 MVP: "One demo farmer, one mango orchard, a 4x5 zone grid".
+zones:
+  rows: 4
+  cols: 5
+  id_prefix: "zone_"
+  # Round coordinates to this many decimals when emitting GeoJSON, so the grid
+  # is byte-for-byte deterministic across platforms.
+  coordinate_precision: 7
+  # Zones whose intersection with the boundary is smaller than this fraction of
+  # a full cell are dropped (slivers).
+  min_coverage_ratio: 0.02
+
+# --- Image quality gate (Section 7 M3, Section 8.3) -----------------------
+# A failing image is rejected with a retake prompt BEFORE any inference runs.
+quality_gate:
+  min_width_px: 160
+  min_height_px: 160
+  # Reject extreme panoramas that cannot be close-up fruit evidence.
+  max_aspect_ratio: 3.0
+  # Variance of the Laplacian. Higher = sharper. Tuned against synthetic
+  # sharp/blur fixtures in tests/test_preprocessing.py.
+  min_laplacian_variance: 40.0
+  # Mean luma on a 0-255 scale.
+  min_mean_luma: 30.0
+  max_mean_luma: 235.0
+  # p99 - p01 luma spread; rejects flat/blank frames.
+  min_dynamic_range: 15.0
+  # Mean HSV saturation; rejects grayscale or washed-out uploads.
+  min_mean_saturation: 10.0
+
+# --- Preprocessing (Section 7 M3, every step toggleable) -------------------
+preprocessing:
+  clahe_enabled: true
+  clahe_clip_limit: 2.0
+  clahe_grid_size: 8
+  gray_world_enabled: true
+  gray_world_target_luma: 128.0
+  max_dimension_px: 1280
+
+# --- Fruit detection -------------------------------------------------------
+fruit_detection:
+  confidence_threshold: 0.35
+  iou_threshold: 0.45
+  # Sanity ceiling so a bad frame cannot report thousands of fruit.
+  max_detections: 400
+  min_detections_for_confident_count: 5
+
+# --- Fusion (Section 7 M7) ------------------------------------------------
+# ripeness_zone = w_drone * drone + w_ground * ground
+# A missing source is NEVER treated as zero: weights are renormalized over
+# the sources actually present.
+fusion:
+  weights:
+    drone: 0.40
+    ground: 0.60
+  # Satellite/weather/soil/farmer_report never contribute to the ripeness
+  # number. They adjust confidence and feed the risk engine.
+  health_weights:
+    drone: 0.45
+    ground: 0.55
+  confidence:
+    base_per_source:
+      drone: 0.72
+      ground: 0.78
+    # Subtracted for each configured ripeness source that is unavailable.
+    penalty_per_missing_source: 0.08
+    context_bonus: 0.04
+    max_context_bonus_sources: 2
+    min: 0.20
+    max: 0.95
+  # If the total weight of present sources falls below this fraction of the
+  # configured total, the zone result is marked low-evidence and the API
+  # surfaces `evidence_insufficient: true`.
+  min_evidence_ratio: 0.50
+  # Bounds applied to every fused score.
+  score_clamp:
+    min: 0.0
+    max: 1.0
+
+# --- Ripeness status (Section 8.1) ----------------------------------------
+harvest:
+  status_thresholds:
+    harvest_ready: 0.70
+    near_ready: 0.40
+  status_labels:
+    HARVEST_READY: Harvest ready
+    NEAR_READY: Near ready
+    NOT_READY: Not ready
+    HEALTH_CONCERN: Health concern - inspect
+  # Section 8.1 "health risk high -> HEALTH_CONCERN (overrides or annotates)".
+  # `override` sets `status = HEALTH_CONCERN`; the un-overridden ripeness
+  # status is always preserved in `ripeness_status`. `annotate` keeps the
+  # ripeness status and only sets the `health_concern` flag.
+  health_concern:
+    mode: override
+    triggering_risk_levels: [high]
+    # An independently low health score also flags a concern.
+    health_score_below: 0.45
+
+  # Section 8.2 days-to-harvest bands. First band whose min_score <= score wins.
+  days_to_harvest_bands:
+    - min_score: 0.85
+      label: "0-1 days"
+      min_days: 0
+      max_days: 1
+    - min_score: 0.70
+      label: "1-3 days"
+      min_days: 1
+      max_days: 3
+    - min_score: 0.40
+      label: "4-7 days"
+      min_days: 4
+      max_days: 7
+    - min_score: 0.00
+      label: "8-14 days"
+      min_days: 8
+      max_days: 14
+  # Section 8.2 "health-risk adjustment: move earlier if waiting increases
+  # crop loss". Applied to the band index, not the label text.
+  health_risk_adjustment:
+    enabled: true
+    risk_levels: [high]
+    shift_bands_earlier_by: 1
+
+# --- Risk engine (Section 7 M8) ------------------------------------------
+risk:
+  # Health score -> risk level.
+  health_score_levels:
+    high_below: 0.45
+    medium_below: 0.70
+  weather:
+    heavy_rain_probability: 0.60
+    heavy_rain_window_days: 3
+    heat_risk_temperature_c: 38.0
+    heat_risk_window_days: 3
+    strong_wind_kph: 30.0
+  satellite:
+    # Drop in vegetation index versus the previous period that counts as an
+    # anomaly (Section 7 M4: "canopy condition anomaly", never ripeness).
+    anomaly_drop_threshold: 0.08
+    healthy_index_floor: 0.35
+  soil:
+    moisture_below: 0.20
+    ph_min: 5.0
+    ph_max: 8.5
+  crop_stage:
+    # Stages in which waiting costs more, or less, crop loss.
+    loss_pressure_high: [ripening, harvest]
+    loss_pressure_low: [flowering, fruit_set]
+  confidence:
+    # A rule needs at least this much confidence to raise risk on its own.
+    min_confidence_to_escalate: 0.40
+    min: 0.10
+    max: 0.95
+  # Ordering used to pick the final level.
+  levels: [none, low, medium, high]
+
+# --- Recommended actions (Section 12.5) ----------------------------------
+actions:
+  HARVEST_READY: PRIORITIZE_HARVEST
+  NEAR_READY: MONITOR_AND_PREPARE
+  NOT_READY: CONTINUE_MONITORING
+  HEALTH_CONCERN: INSPECT_ZONE
+
+# --- Officer hotspots (Section 7 M14) ------------------------------------
+hotspots:
+  # Documented wording requirement: "potential hotspot requiring validation",
+  # never a confirmed outbreak.
+  label: potential hotspot requiring validation
+  simulated_notice: SIMULATED
+  min_zones_to_flag: 2
+  # Share of district zones that must share a signal before flagging.
+  min_cluster_ratio: 0.20
+  health_score_below: 0.55
+  risk_levels: [medium, high]
+  clustering:
+    grid_cell_degrees: 0.05
+    radius_meters: 1500.0
+
+# --- Gemini (Section 12.7) ------------------------------------------------
+gemini:
+  temperature: 0.1
+  top_p: 0.9
+  max_output_tokens: 1024
+  # Small, bounded retry policy (Section 13 / risk table "retry, deterministic
+  # fallback template").
+  max_retries: 2
+  retry_backoff_seconds: 0.5
+  request_timeout_seconds: 30.0

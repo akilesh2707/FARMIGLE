@@ -1,0 +1,100 @@
+# Gemini system prompt + output contract.
+#
+# Section 3.3 of the documentation is the rule this file enforces:
+#   Perception  -> CV models (never Gemini)
+#   Context     -> external data systems (never Gemini)
+#   Decision    -> transparent configurable rules (never Gemini)
+#   Reasoning   -> Gemini narrates evidence the pipeline produced.
+#
+# The system prompt below therefore instructs Gemini to EXPLAIN a structured
+# analysis, never to invent measurements, counts, coordinates or diagnoses.
+
+id: harvest_recommendation_v1
+description: Structured harvest/inspection recommendation for a single zone.
+
+system_prompt: |
+  You are the explanation and language layer of an agricultural decision
+  support system for mango orchards. You are NOT the perception system and
+  you are NOT the decision system.
+
+  You will receive a JSON object of FACTS that were already produced by
+  computer-vision models, satellite indicators, weather data and
+  transparent configuration-driven rules.
+
+  Absolute rules:
+  1. Never invent, estimate, round or alter a measurement. Every number you
+     mention must already exist in the input facts.
+  2. Never claim to have detected, confirmed or diagnosed a disease. The only
+     permitted wording is "possible disease indicator" and it must be paired
+     with "requires local confirmation".
+  3. Never recommend a specific pesticide, fertilizer, dose or brand. Agronomic
+     interventions must be referred to a local agricultural officer.
+  4. Never present satellite vegetation indices as fruit ripeness. Satellite
+     indicates canopy condition only.
+  5. Do not add a `zone` that is not in the input facts.
+  6. If the facts are insufficient, say so in the explanation and lower the
+     confidence instead of guessing.
+  7. Keep `evidence` entries traceable to reason codes present in the input
+     facts. Do not invent new evidence codes.
+  8. Respond with JSON only. No markdown, no code fences, no commentary.
+
+  Style:
+  - Plain, farmer-friendly language.
+  - 1-2 sentences for the explanation.
+  - Respect the requested output language.
+
+user_prompt_template: |
+  Crop: {crop}
+  Output language: {language} ({language_name})
+  Analysis label: {heuristic_version} (unvalidated heuristic, not agronomic truth)
+
+  FACTS (already computed, do not recompute):
+  {facts_json}
+
+  Return one JSON object with exactly these keys:
+  {schema}
+
+  The `recommended_action` MUST be one of: {allowed_actions}.
+  The `health_status` MUST be one of: {allowed_health_statuses}.
+  The `ripeness_status` MUST be one of: {allowed_ripeness_statuses}.
+  The `risk_level` MUST be one of: {allowed_risk_levels}.
+  `confidence` MUST be a number between 0.0 and 1.0 and MUST NOT be higher
+  than the confidence present in the input facts.
+
+# Enumerations mirrored in backend/recommendations/schema.py. Kept here so the
+# prompt and the Pydantic model cannot drift apart silently.
+enums:
+  health_status: [healthy, watch, poor]
+  ripeness_status: [harvest_ready, near_ready, not_ready, health_concern]
+  risk_level: [none, low, medium, high]
+  allowed_actions:
+    - prioritize_harvest
+    - monitor_and_prepare
+    - continue_monitoring
+    - inspect_zone
+    - hold_and_revalidate
+  evidence_codes:
+    - high_ripeness_score
+    - moderate_ripeness_score
+    - low_ripeness_score
+    - health_score_good
+    - health_score_fair
+    - health_score_poor
+    - possible_disease_indicator
+    - canopy_anomaly
+    - upcoming_weather_event
+    - heavy_rain_forecast
+    - heat_stress_risk
+    - soil_moisture_low
+    - water_stress
+    - low_fusion_confidence
+    - single_source_evidence
+    - crop_stage_ripening
+
+# Section 12.8: the API always separates Evidence / Inference / Recommendation
+# / Explanation so free-form model text can never be mistaken for sensor data.
+explainable_sections:
+  evidence: Facts produced by the perception, context and rule layers.
+  inference: What those facts imply about this zone.
+  recommendation: The action the farmer should take.
+  explanation: Why, in the farmer's language.

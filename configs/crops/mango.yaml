@@ -1,0 +1,127 @@
+# Crop configuration: mango
+#
+# Crop-level facts used by the backend. Perception *thresholds* live in
+# configs/thresholds/mango.yaml. Nothing here is a scientific claim; these are
+# configuration values for the mango demo (Section 4.1 of the documentation:
+# "Mango only" for the MVP).
+
+crop: mango
+display_name: Mango
+version: "1.0.0"
+
+# Documented Section 4.1: color-based ripeness is variety dependent. Several
+# mango varieties stay green when ripe, so the ripeness model must be able to
+# report lower confidence for those varieties rather than forcing a score.
+varieties:
+  - id: alphonso
+    name: Alphonso
+    ripeness_uses_color: true
+    confidence_multiplier: 1.0
+  - id: urampatti
+    name: Urampatti
+    ripeness_uses_color: true
+    confidence_multiplier: 0.95
+  - id: neelam
+    name: Neelam
+    ripeness_uses_color: true
+    confidence_multiplier: 0.95
+  - id: kashmiri_mango
+    name: Kashmiri / green-skinned variety
+    # Known failure mode: stays green at maturity. Color alone under-reports
+    # ripeness, so confidence is reduced and the pipeline flags the caveat.
+    ripeness_uses_color: false
+    confidence_multiplier: 0.6
+  - id: unknown
+    name: Unknown / not reported
+    ripeness_uses_color: true
+    confidence_multiplier: 0.7
+
+default_variety: unknown
+
+# Documented Section 5.2 step 8. Ordered, first match wins.
+crop_stages:
+  - id: flowering
+    label: Flowering
+    order: 1
+    harvest_relevant: false
+  - id: fruit_set
+    label: Fruit set
+    order: 2
+    harvest_relevant: false
+  - id: fruit_development
+    label: Fruit development
+    order: 3
+    harvest_relevant: true
+  - id: ripening
+    label: Ripening
+    order: 4
+    harvest_relevant: true
+  - id: harvest
+    label: Harvest window
+    order: 5
+    harvest_relevant: true
+  - id: post_harvest
+    label: Post harvest
+    order: 6
+    harvest_relevant: false
+
+default_crop_stage: fruit_development
+
+# Section 6 / 12.1 observation sources. `image` marks which sources are expected
+# to carry an image asset through the preprocessing + inference pipeline.
+sources:
+  satellite:
+    image: false
+    zone_level: true
+    ripeness_capable: false   # ~10 m/px: cannot see fruit (Section 9.1 reality 1)
+  drone:
+    image: true
+    zone_level: true
+    ripeness_capable: true
+  phone:
+    image: true
+    zone_level: false
+    ripeness_capable: true
+  rover:
+    image: true
+    zone_level: true
+    ripeness_capable: true
+  farmer_report:
+    image: false
+    zone_level: true
+    ripeness_capable: false
+  weather:
+    image: false
+    zone_level: false
+    ripeness_capable: false
+  soil:
+    image: false
+    zone_level: true
+    ripeness_capable: false
+
+# Fusion inputs grouped by role (Section 7 M7).
+fusion_sources:
+  ripeness:
+    - drone
+    - ground      # "ground" is a fusion-side role, satisfied by phone/rover
+  health:
+    - drone
+    - ground
+  context:
+    - satellite
+    - weather
+    - farmer_report
+    - soil
+
+# MVP language (Section 4.1: Tamil voice and text, plus one extra as text).
+languages:
+  primary: ta
+  secondary: en
+  supported: [ta, en]
+  speech_to_text: [ta, en]
+  text_to_speech: [ta, en]
+  translation: [ta, en]
+
+language_names:
+  ta: Tamil
+  en: English

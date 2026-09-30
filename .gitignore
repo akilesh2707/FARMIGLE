@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets: `.env` is never committed, only `.env.example`.
+.env
+
+# Local runtime data (uploaded images, generated GeoJSON maps).
+.local_data/
+
+# Model weights are large binaries; fetch them explicitly.
+data/weights/
+
+# OS
+.DS_Store

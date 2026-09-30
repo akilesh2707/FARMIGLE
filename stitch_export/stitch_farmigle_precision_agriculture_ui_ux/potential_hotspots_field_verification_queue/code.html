@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary-container": "#81a799",
+          "on-error-container": "#93000a",
+          "inverse-primary": "#a8cfc1",
+          "surface-container-highest": "#dbe5de",
+          "on-background": "#151d1a",
+          "surface-tint": "#42655a",
+          "error": "#ba1a1a",
+          "on-secondary-fixed": "#0b2012",
+          "on-surface": "#151d1a",
+          "tertiary-fixed": "#ffdbce",
+          "surface-container": "#e6f0ea",
+          "tertiary": "#3f1200",
+          "background": "#f2fcf5",
+          "tertiary-fixed-dim": "#ffb598",
+          "on-secondary-fixed-variant": "#364c3c",
+          "tertiary-container": "#5d250b",
+          "primary-fixed": "#c4ebdc",
+          "on-tertiary-fixed-variant": "#72351b",
+          "outline-variant": "#c1c8c4",
+          "on-primary-fixed": "#002018",
+          "surface-container-high": "#e1ebe4",
+          "surface": "#f2fcf5",
+          "primary-fixed-dim": "#a8cfc1",
+          "secondary-fixed-dim": "#b4cdb8",
+          "on-error": "#ffffff",
+          "surface-variant": "#dbe5de",
+          "on-primary-fixed-variant": "#2a4d43",
+          "surface-bright": "#f2fcf5",
+          "primary-container": "#183c32",
+          "secondary-fixed": "#d0e9d3",
+          "secondary": "#4d6452",
+          "on-tertiary-fixed": "#370e00",
+          "secondary-container": "#cde6d0",
+          "surface-dim": "#d2dcd6",
+          "inverse-surface": "#29322e",
+          "outline": "#717975",
+          "on-tertiary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "surface-container-low": "#ecf6ef",
+          "on-tertiary-container": "#dc8a69",
+          "on-surface-variant": "#414845",
+          "error-container": "#ffdad6",
+          "surface-container-lowest": "#ffffff",
+          "on-secondary-container": "#526856",
+          "primary": "#00261d",
+          "on-primary": "#ffffff",
+          "inverse-on-surface": "#e9f3ed"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "gutter-desktop": "1.5rem",
+          "margin-desktop": "2.5rem",
+          "space-lg": "1.5rem",
+          "space-xs": "0.25rem",
+          "margin-tablet": "1.5rem",
+          "space-2xl": "3.5rem",
+          "space-sm": "0.5rem",
+          "space-xl": "2.25rem",
+          "space-md": "1rem",
+          "margin": "1rem",
+          "gutter": "1rem"
+        },
+        "fontFamily": {
+          "page-title": [
+            "IBM Plex Sans"
+          ],
+          "section-title": [
+            "IBM Plex Sans"
+          ],
+          "page-title-mobile": [
+            "IBM Plex Sans"
+          ],
+          "display-mobile": [
+            "IBM Plex Sans"
+          ],
+          "display": [
+            "IBM Plex Sans"
+          ],
+          "body-default": [
+            "IBM Plex Sans"
+          ],
+          "metric-value": [
+            "IBM Plex Sans"
+          ],
+          "body-secondary": [
+            "IBM Plex Sans"
+          ],
+          "technical-label": [
+            "IBM Plex Sans"
+          ],
+          "body-emphasis": [
+            "IBM Plex Sans"
+          ]
+        },
+        "fontSize": {
+          "page-title": [
+            "30px",
+            {
+              "lineHeight": "38px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "section-title": [
+            "19px",
+            {
+              "lineHeight": "26px",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "page-title-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "display-mobile": [
+            "36px",
+            {
+              "lineHeight": "42px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "display": [
+            "52px",
+            {
+              "lineHeight": "60px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-default": [
+            "15px",
+            {
+              "lineHeight": "22px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "metric-value": [
+            "28px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-secondary": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "technical-label": [
+            "11px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.08em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-emphasis": [
+            "15px",
+            {
+              "lineHeight": "22px",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-default text-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="p-space-md bg-surface-container"><div class="flex items-center gap-space-sm mb-space-xs"><img alt="Brand logo. - Primary color: #183c32
+- Font: ibmPlexSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U40nIMjqcWRjC8xQ76B68b4gs0m5GqCGvI4zmfTzTzTFF27Zta2_VeXItkxF0tsYUJ9Nh103BfzfLXE7_V3_hYcVpEHi_2ORKb-5FPT2khTjjIwKNYfTxAg5wVIlen5YWRgjJnJhUehe5eUW0dpq6UGCrX3xE_M-oOJh6Xt3fIm12C4ToUjzqAe8e3p9j_GUq3kRtu8sqCq75IAuCuf77Wn-GxLHDIrff0WsTmA1AMv7OJB0Y0GhZUCEI"/><div class="flex flex-col"><span class="font-body-emphasis text-body-emphasis text-primary tracking-tight leading-none">FARMIGLE</span><span class="font-technical-label text-technical-label text-on-surface-variant uppercase tracking-wider mt-space-xs">Agri Intelligence</span></div></div><div class="mt-space-xs flex items-center justify-between bg-surface-container-high px-space-sm py-space-xs rounded-xl"><span class="font-technical-label text-technical-label text-on-secondary-container uppercase tracking-wider font-semibold">Theni District, TN</span><span class="h-2 w-2 rounded-full bg-secondary"></span></div></div><nav class="flex flex-col gap-space-xs p-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-body-emphasis rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.06)]"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-default text-body-default">Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="district-map" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-body-default text-body-default">District Map</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-sm transition-colors bg-primary-container text-on-primary font-body-emphasis rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.06)]" data-path="potential-hotspots" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="font-body-default text-body-default">Potential Hotspots</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="farm-inspection" href="#"><span class="material-symbols-outlined text-[20px]">center_focus_strong</span><span class="font-body-default text-body-default">Farm Inspection</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="trends" href="#"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-body-default text-body-default">Trends</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-default text-body-default">Settings</span></a></nav></div><div class="p-space-sm bg-surface-container-low"><div class="bg-surface p-space-sm rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.04)] mb-space-xs"><div class="flex items-center gap-space-xs mb-space-xs"><span class="h-2 w-2 rounded-full bg-secondary"></span><span class="font-technical-label text-technical-label text-on-surface-variant uppercase tracking-wider">Sentinel-2 Sync 09:40 AM</span></div><div class="flex items-center justify-between text-on-surface-variant"><span class="font-technical-label text-technical-label text-secondary">Cache: Offline Ready</span><span class="material-symbols-outlined text-[16px] text-secondary">cloud_done</span></div></div><div class="flex items-center gap-space-sm p-space-xs bg-surface-container rounded-xl"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-body-emphasis text-body-secondary text-on-surface truncate">K. Selvaraj</span><span class="font-technical-label text-technical-label text-on-surface-variant truncate uppercase">Govt. Ag. Extension Dept</span></div></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-md"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #183c32
+- Font: ibmPlexSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U40nIMjqcWRjC8xQ76B68b4gs0m5GqCGvI4zmfTzTzTFF27Zta2_VeXItkxF0tsYUJ9Nh103BfzfLXE7_V3_hYcVpEHi_2ORKb-5FPT2khTjjIwKNYfTxAg5wVIlen5YWRgjJnJhUehe5eUW0dpq6UGCrX3xE_M-oOJh6Xt3fIm12C4ToUjzqAe8e3p9j_GUq3kRtu8sqCq75IAuCuf77Wn-GxLHDIrff0WsTmA1AMv7OJB0Y0GhZUCEI"/><div class="flex items-center gap-space-xs text-on-surface"><span class="font-body-emphasis text-body-default text-primary">Theni District</span><span class="text-on-surface-variant">•</span><span class="font-body-secondary text-body-secondary text-on-surface-variant">Periyakulam Sub-basin</span><span class="bg-surface-container px-space-xs py-0.5 rounded-lg font-technical-label text-technical-label text-secondary font-medium">(42 Active Units)</span></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-xl text-on-surface-variant"><span class="h-2 w-2 rounded-full bg-secondary animate-pulse"></span><span class="font-technical-label text-technical-label uppercase tracking-wide">Sentinel-2 Multispectral Sync Active • 10m Res</span></div><div class="flex items-center bg-surface-container p-0.5 rounded-lg"><button class="px-space-xs py-1 rounded bg-primary text-on-primary font-technical-label text-technical-label uppercase font-medium" type="button">EN</button><button class="px-space-xs py-1 rounded text-on-surface-variant hover:text-on-surface font-technical-label text-technical-label uppercase font-medium" type="button">தமிழ்</button></div><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container hover:text-on-surface text-on-surface font-body-emphasis text-body-secondary transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">file_download</span><span>Export PDF</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full">
+<div class="px-gutter-desktop py-space-lg flex flex-col gap-space-lg max-w-[1720px] mx-auto w-full">
+<!-- Top Strategic Context Header -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm text-secondary">
+<span class="font-technical-label text-technical-label uppercase tracking-widest text-secondary font-semibold">Geospatial Priority Queue</span>
+<span class="text-outline-variant">•</span>
+<span class="font-technical-label text-technical-label uppercase tracking-widest text-on-surface-variant">Theni Agri Division</span>
+</div>
+<h1 class="font-page-title text-page-title text-primary tracking-tight">Potential Hotspots &amp; Field Verification Queue</h1>
+<p class="font-body-default text-body-default text-on-surface-variant max-w-3xl">
+          7 detected spectral anomalies requiring physical ground validation by district extension personnel.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="bg-surface-container-high px-space-md py-space-sm rounded-xl flex items-center gap-space-md shadow-sm">
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant tracking-wider">Ground Confidence Index</span>
+<span class="font-body-emphasis text-body-emphasis text-primary flex items-center gap-1">
+              64.2% <span class="font-technical-label text-technical-label text-secondary font-normal">(4/7 Inspected this week)</span>
+</span>
+</div>
+<span class="material-symbols-outlined text-[24px] text-secondary">verified</span>
+</div>
+</div>
+</div>
+<!-- Filter & Control Ribbon -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-sm">
+<div class="flex flex-col md:flex-row items-stretch md:items-center gap-space-sm flex-1">
+<!-- Search Field -->
+<div class="relative min-w-[280px] lg:min-w-[340px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span>
+<input class="w-full h-[40px] pl-9 pr-3 bg-surface-container-lowest text-on-surface text-body-default rounded-lg focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Filter by taluk, cluster name, or crop..." type="text"/>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-1">
+<button class="h-7 px-3 rounded-lg bg-primary-container text-on-primary font-technical-label text-technical-label font-medium uppercase tracking-wider flex items-center gap-1.5 shrink-0 shadow-sm" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+            All Clusters (7)
+          </button>
+<button class="h-7 px-3 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest font-technical-label text-technical-label uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+            High Priority (3)
+          </button>
+<button class="h-7 px-3 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest font-technical-label text-technical-label uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Under Validation (2)
+          </button>
+<button class="h-7 px-3 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest font-technical-label text-technical-label uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+            Awaiting Scout (2)
+          </button>
+</div>
+</div>
+<!-- Sorting Selector -->
+<div class="flex items-center justify-between sm:justify-end gap-space-sm shrink-0">
+<label class="font-technical-label text-technical-label uppercase text-on-surface-variant tracking-wider">Order:</label>
+<div class="relative">
+<select class="h-[40px] pl-3 pr-8 bg-surface-container-lowest text-on-surface font-body-emphasis text-body-secondary rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container-high">
+<option>Sort by: Total Flagged Acreage</option>
+<option>Sort by: Spectral Variance (High to Low)</option>
+<option>Sort by: Recency of Observation</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[16px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Coordinated Layout (60% Directory / 40% Geospatial Preview) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Directory Left Column (60% Desktop: col-span-7) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Hotspot Alpha (Selected / Active) -->
+<article class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col gap-space-md transition-shadow relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-container rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-space-sm pl-2">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-technical-label text-technical-label uppercase tracking-widest text-tertiary-container font-semibold">Hotspot Alpha</span>
+<span class="text-outline-variant">•</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant uppercase">Sentinel-2 MSI Level-2A</span>
+</div>
+<h2 class="font-section-title text-section-title text-primary">Theni West Ridge (Sector 04)</h2>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-tertiary-container text-on-primary font-technical-label text-technical-label uppercase tracking-wider font-semibold whitespace-nowrap">
+              Requires Validation
+            </span>
+</div>
+<!-- Metadata Spec Grid -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-sm rounded-lg pl-3">
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Coverage Area</span>
+<span class="font-body-emphasis text-body-emphasis text-primary">18.4 acres</span>
+<span class="font-technical-label text-technical-label text-secondary">12 farms involved</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Crop Type</span>
+<span class="font-body-emphasis text-body-emphasis text-on-surface">Mango Orchard</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant">Alphonso / Banganapalli</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Observation</span>
+<span class="font-body-emphasis text-body-emphasis text-primary">Today, 09:40 AM</span>
+<span class="font-technical-label text-technical-label text-secondary">Direct pass sync</span>
+</div>
+</div>
+<!-- Signal Description Block -->
+<div class="flex items-start gap-space-sm px-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container shrink-0 mt-0.5">warning</span>
+<div class="flex flex-col">
+<span class="font-body-emphasis text-body-secondary text-primary">Signal Type: Possible health indicator (Canopy chlorophyll decline)</span>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant mt-0.5">
+                Multi-band reflectance demonstrates -14.2% drop in Red Edge Band 7. Soil moisture levels remain adequate, suggesting foliar or root vascular stress rather than surface aridity.
+              </p>
+</div>
+</div>
+<!-- Footer Action Tray -->
+<div class="pt-space-xs flex flex-wrap items-center justify-between gap-space-sm pl-2">
+<div class="flex items-center gap-space-xs">
+<span class="font-technical-label text-technical-label uppercase text-outline">Assigned Officer:</span>
+<span class="font-technical-label text-technical-label uppercase text-tertiary font-bold bg-surface-container-high px-2 py-0.5 rounded">Unassigned</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-body-emphasis text-body-secondary flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+                Assign Field Scout
+              </button>
+<button class="h-8 px-space-sm rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-emphasis text-body-secondary flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+                Inspect Cluster
+              </button>
+</div>
+</div>
+</article>
+<!-- Hotspot Beta -->
+<article class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-space-sm pl-2">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-technical-label text-technical-label uppercase tracking-widest text-secondary font-semibold">Hotspot Beta</span>
+<span class="text-outline-variant">•</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant uppercase">Sentinel-2 &amp; Landsat Cross-ref</span>
+</div>
+<h2 class="font-section-title text-section-title text-primary">Periyakulam Lower Canal</h2>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-secondary-container text-on-secondary-container font-technical-label text-technical-label uppercase tracking-wider font-semibold whitespace-nowrap">
+              Validation in Progress
+            </span>
+</div>
+<!-- Metadata Spec Grid -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-sm rounded-lg pl-3">
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Coverage Area</span>
+<span class="font-body-emphasis text-body-emphasis text-primary">11.2 acres</span>
+<span class="font-technical-label text-technical-label text-secondary">7 farms involved</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Crop Type</span>
+<span class="font-body-emphasis text-body-emphasis text-on-surface">Guava &amp; Citrus</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant">Intercropped Orchard</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Observation</span>
+<span class="font-body-emphasis text-body-emphasis text-primary">Yesterday, 14:15 PM</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant">Processed &amp; Calibrated</span>
+</div>
+</div>
+<!-- Signal Description Block -->
+<div class="flex items-start gap-space-sm px-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">water_drop</span>
+<div class="flex flex-col">
+<span class="font-body-emphasis text-body-secondary text-primary">Signal Type: Canopy anomaly (Water stress / moisture variance)</span>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant mt-0.5">
+                NDWI spatial gradient marks sharp deviation along tail-end lateral irrigation distributary #09. Ground scout currently measuring root-zone tensiometer values.
+              </p>
+</div>
+</div>
+<!-- Footer Action Tray -->
+<div class="pt-space-xs flex flex-wrap items-center justify-between gap-space-sm pl-2">
+<div class="flex items-center gap-space-xs">
+<span class="font-technical-label text-technical-label uppercase text-outline">Assigned Officer:</span>
+<span class="font-body-emphasis text-body-secondary text-primary">M. Anand (Field Scout #04)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-body-emphasis text-body-secondary flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">assignment</span>
+                View Field Notes
+              </button>
+</div>
+</div>
+</article>
+<!-- Hotspot Gamma -->
+<article class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-container rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-space-sm pl-2">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-technical-label text-technical-label uppercase tracking-widest text-tertiary-container font-semibold">Hotspot Gamma</span>
+<span class="text-outline-variant">•</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant uppercase">Sentinel-2 Multispectral</span>
+</div>
+<h2 class="font-section-title text-section-title text-primary">Andipatti Foothills</h2>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-tertiary-container text-on-primary font-technical-label text-technical-label uppercase tracking-wider font-semibold whitespace-nowrap">
+              Requires Validation
+            </span>
+</div>
+<!-- Metadata Spec Grid -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-sm rounded-lg pl-3">
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Coverage Area</span>
+<span class="font-body-emphasis text-body-emphasis text-primary">9.0 acres</span>
+<span class="font-technical-label text-technical-label text-secondary">6 farms involved</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Crop Type</span>
+<span class="font-body-emphasis text-body-emphasis text-on-surface">Mango Orchard</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant">Neelum / Bangalora</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Observation</span>
+<span class="font-body-emphasis text-body-emphasis text-primary">2 days ago</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant">Telemetry Queued</span>
+</div>
+</div>
+<!-- Signal Description Block -->
+<div class="flex items-start gap-space-sm px-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container shrink-0 mt-0.5">vital_signs</span>
+<div class="flex flex-col">
+<span class="font-body-emphasis text-body-secondary text-primary">Signal Type: Possible health indicator (Early foliar variance)</span>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant mt-0.5">
+                Cluster concentrated on western slope parcels. Initial band ratios point towards localized vegetative canopy thinning over 14-day rolling window.
+              </p>
+</div>
+</div>
+<!-- Footer Action Tray -->
+<div class="pt-space-xs flex flex-wrap items-center justify-between gap-space-sm pl-2">
+<div class="flex items-center gap-space-xs">
+<span class="font-technical-label text-technical-label uppercase text-outline">Assigned Officer:</span>
+<span class="font-technical-label text-technical-label uppercase text-tertiary font-bold bg-surface-container-high px-2 py-0.5 rounded">Unassigned</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-body-emphasis text-body-secondary flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+                Assign Field Scout
+              </button>
+<button class="h-8 px-space-sm rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-emphasis text-body-secondary flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+                Inspect Cluster
+              </button>
+</div>
+</div>
+</article>
+<!-- Hotspot Delta -->
+<article class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md opacity-90 relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-fixed-dim rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-space-sm pl-2">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-technical-label text-technical-label uppercase tracking-widest text-on-surface-variant font-semibold">Hotspot Delta</span>
+<span class="text-outline-variant">•</span>
+<span class="font-technical-label text-technical-label text-secondary font-medium">Ground Verified</span>
+</div>
+<h2 class="font-section-title text-section-title text-on-surface">Bodinayakanur East Corridor</h2>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high text-secondary font-technical-label text-technical-label uppercase tracking-wider font-semibold whitespace-nowrap flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Validation Complete — Resolved
+            </span>
+</div>
+<!-- Metadata Spec Grid -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-sm rounded-lg pl-3">
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Coverage Area</span>
+<span class="font-body-emphasis text-body-emphasis text-on-surface">6.5 acres</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant">4 farms involved</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Crop Type</span>
+<span class="font-body-emphasis text-body-emphasis text-on-surface">Banana &amp; Mixed Orchard</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant">Grand Naine Cultivar</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Observation</span>
+<span class="font-body-emphasis text-body-emphasis text-on-surface">3 days ago</span>
+<span class="font-technical-label text-technical-label text-secondary">Verified by R. Kumar</span>
+</div>
+</div>
+<!-- Signal Description Block -->
+<div class="flex items-start gap-space-sm px-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">task_alt</span>
+<div class="flex flex-col">
+<span class="font-body-emphasis text-body-secondary text-on-surface">Signal Type: Spectral reflectance anomaly</span>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant mt-0.5">
+                Physical ground inspection recorded normal planned pruning cycle with scheduled furrow drip application. No vegetative canopy stress confirmed. File archived.
+              </p>
+</div>
+</div>
+</article>
+</div>
+<!-- Spatial Preview Right Column (40% Desktop: col-span-5) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md lg:sticky lg:top-20">
+<!-- Spatial Inspector Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase tracking-widest text-secondary font-semibold">Active Spatial Inspector</span>
+<h3 class="font-section-title text-section-title text-primary">Theni West Ridge Footprint</h3>
+</div>
+<span class="font-technical-label text-technical-label bg-surface-container px-2 py-1 rounded text-primary-container font-mono">10.0159° N, 77.4768° E</span>
+</div>
+<!-- Static Map with Overlaid Parcels -->
+<div class="relative w-full h-72 rounded-xl overflow-hidden shadow-inner">
+<div class="w-full h-full bg-cover bg-center" data-location="Theni West Ridge, Periyakulam, Tamil Nadu, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCg7UPKINOS2j9G2f35yef_G6qYTYxnWAmG3ItzZlyjr9ZxznzArsnLv2cYVhEwS4YMAsvFN-5-Qz1dCsfdf5ppJ9rSuuMIT3TSzmndVqV-WdOLR9d1IuhSzhTWcisPfat0enSj7CDBGt64GHWx8iEC8RWJG58vwmGze5CoNiMkOMppUhLOdq2MMfdEJ9GpN5AlvmLbalav0hv9ia8QpzYXjiiGy78ug3L8iCjF51DVLK7l5f6-o36-bA')"></div>
+<!-- In-Map Precision Agriculture HUD -->
+<div class="absolute top-3 left-3 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-2 rounded-lg shadow-sm flex flex-col gap-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="font-technical-label text-technical-label uppercase text-primary font-bold">Spectral Anomaly Overlay</span>
+</div>
+<div class="flex items-center gap-2 font-technical-label text-technical-label text-on-surface-variant">
+<span>NDVI Delta: -0.19</span>
+<span>•</span>
+<span>Resol: 10m Ground Res</span>
+</div>
+</div>
+<!-- Visual Parcel Contour SVG Overlay (Non-interactive data representation) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 400 300">
+<!-- Farm Boundary A -->
+<polygon fill="rgba(182, 107, 76, 0.22)" points="40,60 160,40 180,140 70,160" stroke="#B66B4C" stroke-dasharray="3,3" stroke-width="2"></polygon>
+<!-- Farm Boundary B (Active Critical Anomaly) -->
+<polygon fill="rgba(186, 26, 26, 0.28)" points="170,50 310,80 290,190 190,150" stroke="#ba1a1a" stroke-width="2"></polygon>
+<circle cx="240" cy="115" fill="#ba1a1a" r="4"></circle>
+<text fill="#151d1a" font-family="IBM Plex Sans" font-size="10" font-weight="600" x="248" y="119">PARCEL-104 (3.2 Ac)</text>
+<!-- Farm Boundary C -->
+<polygon fill="rgba(63, 118, 88, 0.15)" points="80,175 195,160 220,270 90,260" stroke="#3f7658" stroke-width="1.5"></polygon>
+</svg>
+<!-- Map Controls Ribbon -->
+<div class="absolute bottom-3 right-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-sm p-1 rounded-lg shadow-sm">
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface text-primary hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[16px]">layers</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface text-primary hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[16px]">straighten</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface text-primary hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[16px]">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Zonal Health Ribbon Visualizer -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant font-technical-label text-technical-label uppercase">
+<span>Cluster Vegetative Health Index (VHI) Range</span>
+<span class="font-body-emphasis text-primary">0.38 - 0.74 NDVI</span>
+</div>
+<div class="w-full h-2 rounded bg-surface-container-high overflow-hidden flex">
+<div class="h-full bg-error" style="width: 28%"></div>
+<div class="h-full bg-tertiary-fixed-dim" style="width: 22%"></div>
+<div class="h-full bg-secondary" style="width: 50%"></div>
+</div>
+<div class="flex items-center justify-between font-technical-label text-technical-label text-on-surface-variant pt-0.5">
+<span class="text-error">Flagged Zone (5.1 Ac)</span>
+<span class="text-on-secondary-container">Buffer Zone (4.0 Ac)</span>
+<span class="text-secondary">Normal Baseline (9.3 Ac)</span>
+</div>
+</div>
+<!-- Micro Weather Station Telemetry -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">sensors</span>
+                Theni Agro-Met Station #02 (2.4 km away)
+              </span>
+<span class="font-technical-label text-technical-label text-secondary font-semibold">Live Sync</span>
+</div>
+<div class="grid grid-cols-4 gap-2 pt-1">
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-outline">Temp</span>
+<span class="font-body-emphasis text-body-secondary text-primary">31.4°C</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-outline">Humidity</span>
+<span class="font-body-emphasis text-body-secondary text-primary">58%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-outline">Wind</span>
+<span class="font-body-emphasis text-body-secondary text-primary">9 km/h SW</span>
+</div>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase text-outline">Solar Rad</span>
+<span class="font-body-emphasis text-body-secondary text-primary">820 W/m²</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Operational Actions Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">checklist_rtl</span>
+<h4 class="font-body-emphasis text-body-emphasis text-primary">Verification Protocol Dispatch</h4>
+</div>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant">
+            Bundle active cluster coordinates and calibrated multi-spectral heatmaps for field extension scouts operating in rural low-bandwidth blocks.
+          </p>
+<div class="flex flex-col gap-2 pt-2">
+<button class="w-full h-10 px-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-emphasis text-body-secondary flex items-center justify-center gap-2 shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">send_to_mobile</span>
+              Batch Dispatch Field Verification Protocols
+            </button>
+<button class="w-full h-10 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-body-emphasis text-body-secondary flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download_done</span>
+              Download Offline Sync Packet for Android Scout App
+            </button>
+</div>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant font-technical-label text-technical-label">
+<span>Package Size: ~14.8 MB</span>
+<span>Target: Theni Agrarian Division Hub</span>
+</div>
+</div>
+<!-- Agronomic Guidance Footnote -->
+<div class="bg-surface-container-high/60 p-space-sm rounded-lg flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">info</span>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant">
+<strong class="text-primary font-medium">Standard Operating Procedure:</strong> Multi-spectral anomalies above 5.0 contiguous acres must be inspected within 48 hours to cross-verify irrigation line status and micro-nutrient profiles.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple filter pill selection visual toggle
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      if (this.innerText.includes('Clusters') || this.innerText.includes('Priority') || this.innerText.includes('Validation') || this.innerText.includes('Scout')) {
+        const parent = this.parentElement;
+        parent.querySelectorAll('button').forEach(sibling => {
+          sibling.className = "h-7 px-3 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest font-technical-label text-technical-label uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-colors";
+        });
+        this.className = "h-7 px-3 rounded-lg bg-primary-container text-on-primary font-technical-label text-technical-label font-medium uppercase tracking-wider flex items-center gap-1.5 shrink-0 shadow-sm";
+      }
+    });
+  });
+</script></main></div></body></html>

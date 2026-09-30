@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary-container": "#81a799",
+          "on-error-container": "#93000a",
+          "inverse-primary": "#a8cfc1",
+          "surface-container-highest": "#dbe5de",
+          "on-background": "#151d1a",
+          "surface-tint": "#42655a",
+          "error": "#ba1a1a",
+          "on-secondary-fixed": "#0b2012",
+          "on-surface": "#151d1a",
+          "tertiary-fixed": "#ffdbce",
+          "surface-container": "#e6f0ea",
+          "tertiary": "#3f1200",
+          "background": "#f2fcf5",
+          "tertiary-fixed-dim": "#ffb598",
+          "on-secondary-fixed-variant": "#364c3c",
+          "tertiary-container": "#5d250b",
+          "primary-fixed": "#c4ebdc",
+          "on-tertiary-fixed-variant": "#72351b",
+          "outline-variant": "#c1c8c4",
+          "on-primary-fixed": "#002018",
+          "surface-container-high": "#e1ebe4",
+          "surface": "#f2fcf5",
+          "primary-fixed-dim": "#a8cfc1",
+          "secondary-fixed-dim": "#b4cdb8",
+          "on-error": "#ffffff",
+          "surface-variant": "#dbe5de",
+          "on-primary-fixed-variant": "#2a4d43",
+          "surface-bright": "#f2fcf5",
+          "primary-container": "#183c32",
+          "secondary-fixed": "#d0e9d3",
+          "secondary": "#4d6452",
+          "on-tertiary-fixed": "#370e00",
+          "secondary-container": "#cde6d0",
+          "surface-dim": "#d2dcd6",
+          "inverse-surface": "#29322e",
+          "outline": "#717975",
+          "on-tertiary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "surface-container-low": "#ecf6ef",
+          "on-tertiary-container": "#dc8a69",
+          "on-surface-variant": "#414845",
+          "error-container": "#ffdad6",
+          "surface-container-lowest": "#ffffff",
+          "on-secondary-container": "#526856",
+          "primary": "#00261d",
+          "on-primary": "#ffffff",
+          "inverse-on-surface": "#e9f3ed"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "gutter-desktop": "1.5rem",
+          "margin-desktop": "2.5rem",
+          "space-lg": "1.5rem",
+          "space-xs": "0.25rem",
+          "margin-tablet": "1.5rem",
+          "space-2xl": "3.5rem",
+          "space-sm": "0.5rem",
+          "space-xl": "2.25rem",
+          "space-md": "1rem",
+          "margin": "1rem",
+          "gutter": "1rem"
+        },
+        "fontFamily": {
+          "page-title": [
+            "IBM Plex Sans"
+          ],
+          "section-title": [
+            "IBM Plex Sans"
+          ],
+          "page-title-mobile": [
+            "IBM Plex Sans"
+          ],
+          "display-mobile": [
+            "IBM Plex Sans"
+          ],
+          "display": [
+            "IBM Plex Sans"
+          ],
+          "body-default": [
+            "IBM Plex Sans"
+          ],
+          "metric-value": [
+            "IBM Plex Sans"
+          ],
+          "body-secondary": [
+            "IBM Plex Sans"
+          ],
+          "technical-label": [
+            "IBM Plex Sans"
+          ],
+          "body-emphasis": [
+            "IBM Plex Sans"
+          ]
+        },
+        "fontSize": {
+          "page-title": [
+            "30px",
+            {
+              "lineHeight": "38px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "section-title": [
+            "19px",
+            {
+              "lineHeight": "26px",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "page-title-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ],
+          "display-mobile": [
+            "36px",
+            {
+              "lineHeight": "42px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "display": [
+            "52px",
+            {
+              "lineHeight": "60px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-default": [
+            "15px",
+            {
+              "lineHeight": "22px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "metric-value": [
+            "28px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-secondary": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "technical-label": [
+            "11px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.08em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-emphasis": [
+            "15px",
+            {
+              "lineHeight": "22px",
+              "letterSpacing": "0em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-default text-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="p-space-md bg-surface-container"><div class="flex items-center gap-space-sm mb-space-xs"><img alt="Brand logo. - Primary color: #183c32
+- Font: ibmPlexSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U40nIMjqcWRjC8xQ76B68b4gs0m5GqCGvI4zmfTzTzTFF27Zta2_VeXItkxF0tsYUJ9Nh103BfzfLXE7_V3_hYcVpEHi_2ORKb-5FPT2khTjjIwKNYfTxAg5wVIlen5YWRgjJnJhUehe5eUW0dpq6UGCrX3xE_M-oOJh6Xt3fIm12C4ToUjzqAe8e3p9j_GUq3kRtu8sqCq75IAuCuf77Wn-GxLHDIrff0WsTmA1AMv7OJB0Y0GhZUCEI"/><div class="flex flex-col"><span class="font-body-emphasis text-body-emphasis text-primary tracking-tight leading-none">FARMIGLE</span><span class="font-technical-label text-technical-label text-on-surface-variant uppercase tracking-wider mt-space-xs">Agri Intelligence</span></div></div><div class="mt-space-xs flex items-center justify-between bg-surface-container-high px-space-sm py-space-xs rounded-xl"><span class="font-technical-label text-technical-label text-on-secondary-container uppercase tracking-wider font-semibold">Theni District, TN</span><span class="h-2 w-2 rounded-full bg-secondary"></span></div></div><nav class="flex flex-col gap-space-xs p-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-body-emphasis rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.06)]"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-default text-body-default">Overview</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-sm transition-colors bg-primary-container text-on-primary font-body-emphasis rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.06)]" data-path="district-map" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-body-default text-body-default">District Map</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="potential-hotspots" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="font-body-default text-body-default">Potential Hotspots</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="farm-inspection" href="#"><span class="material-symbols-outlined text-[20px]">center_focus_strong</span><span class="font-body-default text-body-default">Farm Inspection</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="trends" href="#"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-body-default text-body-default">Trends</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-default text-body-default">Settings</span></a></nav></div><div class="p-space-sm bg-surface-container-low"><div class="bg-surface p-space-sm rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.04)] mb-space-xs"><div class="flex items-center gap-space-xs mb-space-xs"><span class="h-2 w-2 rounded-full bg-secondary"></span><span class="font-technical-label text-technical-label text-on-surface-variant uppercase tracking-wider">Sentinel-2 Sync 09:40 AM</span></div><div class="flex items-center justify-between text-on-surface-variant"><span class="font-technical-label text-technical-label text-secondary">Cache: Offline Ready</span><span class="material-symbols-outlined text-[16px] text-secondary">cloud_done</span></div></div><div class="flex items-center gap-space-sm p-space-xs bg-surface-container rounded-xl"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-body-emphasis text-body-secondary text-on-surface truncate">K. Selvaraj</span><span class="font-technical-label text-technical-label text-on-surface-variant truncate uppercase">Govt. Ag. Extension Dept</span></div></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-md"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #183c32
+- Font: ibmPlexSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U40nIMjqcWRjC8xQ76B68b4gs0m5GqCGvI4zmfTzTzTFF27Zta2_VeXItkxF0tsYUJ9Nh103BfzfLXE7_V3_hYcVpEHi_2ORKb-5FPT2khTjjIwKNYfTxAg5wVIlen5YWRgjJnJhUehe5eUW0dpq6UGCrX3xE_M-oOJh6Xt3fIm12C4ToUjzqAe8e3p9j_GUq3kRtu8sqCq75IAuCuf77Wn-GxLHDIrff0WsTmA1AMv7OJB0Y0GhZUCEI"/><div class="flex items-center gap-space-xs text-on-surface"><span class="font-body-emphasis text-body-default text-primary">Theni District</span><span class="text-on-surface-variant">•</span><span class="font-body-secondary text-body-secondary text-on-surface-variant">Periyakulam Sub-basin</span><span class="bg-surface-container px-space-xs py-0.5 rounded-lg font-technical-label text-technical-label text-secondary font-medium">(42 Active Units)</span></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-xl text-on-surface-variant"><span class="h-2 w-2 rounded-full bg-secondary animate-pulse"></span><span class="font-technical-label text-technical-label uppercase tracking-wide">Sentinel-2 Multispectral Sync Active • 10m Res</span></div><div class="flex items-center bg-surface-container p-0.5 rounded-lg"><button class="px-space-xs py-1 rounded bg-primary text-on-primary font-technical-label text-technical-label uppercase font-medium" type="button">EN</button><button class="px-space-xs py-1 rounded text-on-surface-variant hover:text-on-surface font-technical-label text-technical-label uppercase font-medium" type="button">தமிழ்</button></div><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container hover:text-on-surface text-on-surface font-body-emphasis text-body-secondary transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">file_download</span><span>Export PDF</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full h-[calc(100vh-4rem)] overflow-hidden">
+<!-- Top Telemetry Sub-bar -->
+<div class="w-full bg-surface-container-low px-space-md py-space-xs flex items-center justify-between shadow-sm z-20 shrink-0">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-technical-label text-technical-label text-on-surface-variant uppercase tracking-wider">Workspace:</span>
+<span class="font-body-emphasis text-body-secondary text-primary">District Cadastral GIS • Theni Periyakulam Sub-basin</span>
+</div>
+<div class="hidden md:flex items-center gap-space-xs bg-surface-container px-space-sm py-0.5 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-[15px]">satellite_alt</span>
+<span class="font-technical-label text-technical-label uppercase">Sentinel-2A MSI • Orbit 141 • 10m Ground Sample</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="font-technical-label text-technical-label uppercase tracking-widest">Projection:</span>
+<span class="font-technical-label text-technical-label font-semibold text-primary">WGS 84 / UTM 44N</span>
+</div>
+<span class="text-outline-variant font-technical-label text-technical-label">|</span>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-technical-label text-technical-label text-secondary font-medium uppercase tracking-wide">Cadastre v4.1 Sync OK</span>
+</div>
+</div>
+</div>
+<!-- Main 70/30 Split Viewport -->
+<div class="flex flex-1 w-full overflow-hidden relative">
+<!-- 70% Primary Geospatial Cartographic Canvas -->
+<div class="w-full lg:w-[70%] h-full relative bg-[#E7ECE5] overflow-hidden select-none flex flex-col">
+<!-- Top Floating HUD Controls -->
+<div class="absolute top-space-md left-space-md right-space-md z-30 flex flex-wrap items-center justify-between gap-space-sm pointer-events-none">
+<!-- Floating Telemetry Coordinates Bar -->
+<div class="pointer-events-auto bg-surface-container-lowest/95 backdrop-blur shadow-sm rounded-xl px-space-md py-space-xs flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">file_download_done</span>
+<span class="font-technical-label text-technical-label text-on-surface-variant font-mono">10.0104° N, 77.4768° E</span>
+</div>
+<span class="text-outline-variant font-technical-label text-technical-label">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-technical-label text-technical-label text-on-surface-variant uppercase">Elev:</span>
+<span class="font-technical-label text-technical-label font-mono font-semibold text-primary">284m MSL</span>
+</div>
+<span class="text-outline-variant font-technical-label text-technical-label">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">schedule</span>
+<span class="font-technical-label text-technical-label text-secondary font-medium">Sync: Today 09:40 AM IST</span>
+</div>
+</div>
+<!-- Band Selector HUD -->
+<div class="pointer-events-auto bg-surface-container-lowest/95 backdrop-blur shadow-sm rounded-xl p-1 flex items-center gap-1">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant px-space-xs">Band:</span>
+<button class="px-space-sm py-1 rounded font-technical-label text-technical-label text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">B8 NIR</button>
+<button class="px-space-sm py-1 rounded font-technical-label text-technical-label text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">B4 Red</button>
+<button class="px-space-sm py-1 rounded bg-primary-container text-on-primary font-technical-label text-technical-label font-semibold shadow-xs" type="button">NDVI</button>
+<button class="px-space-sm py-1 rounded font-technical-label text-technical-label text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">NDRE</button>
+<button class="px-space-sm py-1 rounded font-technical-label text-technical-label text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">Moisture (NDWI)</button>
+</div>
+</div>
+<!-- Vector GIS / Cartography Canvas (SVG + Layers) -->
+<div class="w-full h-full relative cursor-grab active:cursor-grabbing overflow-hidden">
+<!-- Map Canvas Visual Layer -->
+<svg class="w-full h-full object-cover" preserveaspectratio="xMidYMid slice" viewbox="0 0 1100 800" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Agricultural parcel patterns -->
+<pattern height="24" id="cropGrid" patternunits="userSpaceOnUse" width="24">
+<path d="M 0 12 L 24 12 M 12 0 L 12 24" fill="none" stroke="#D1DDD5" stroke-dasharray="2 3" stroke-width="0.75"></path>
+</pattern>
+<pattern height="8" id="clayHatch" patterntransform="rotate(45 0 0)" patternunits="userSpaceOnUse" width="8">
+<line opacity="0.35" stroke="#B66B4C" stroke-width="1.2" x1="0" x2="0" y1="0" y2="8"></line>
+</pattern>
+<!-- Water canal pattern -->
+<filter height="120%" id="subtleGlow" width="120%" x="-10%" y="-10%">
+<fedropshadow dx="0" dy="1" flood-color="#183C32" flood-opacity="0.15" stddeviation="1.5"></fedropshadow>
+</filter>
+</defs>
+<!-- Topographic Terrain Fill Base -->
+<rect fill="#E8ECE5" height="800" width="1100"></rect>
+<!-- Contours / Topo Isoline curves -->
+<g fill="none" opacity="0.9" stroke="#D6DFD6" stroke-width="1">
+<path d="M -50 180 Q 250 140, 520 220 T 1150 160"></path>
+<path d="M -50 260 Q 280 210, 580 310 T 1150 240" stroke-width="1.5"></path>
+<path d="M -50 350 Q 210 320, 540 400 T 1150 340"></path>
+<path d="M -50 480 Q 300 430, 620 510 T 1150 460"></path>
+<path d="M -50 620 Q 360 590, 710 650 T 1150 590" stroke-width="1.5"></path>
+<path d="M -50 720 Q 290 690, 750 760 T 1150 710"></path>
+<!-- Topo Elevation Markers -->
+<text class="text-[9px] font-technical-label tracking-widest" fill="#88968B" x="75" y="255">290m</text>
+<text class="text-[9px] font-technical-label tracking-widest" fill="#88968B" x="890" y="235">280m</text>
+<text class="text-[9px] font-technical-label tracking-widest" fill="#88968B" x="680" y="645">270m</text>
+</g>
+<!-- Vaigai River / Periyakulam Canal Tributary system -->
+<g filter="url(#subtleGlow)">
+<path d="M 120 -20 C 180 180, 240 260, 310 420 S 440 680, 480 820" fill="none" opacity="0.8" stroke="#A8CFC1" stroke-linecap="round" stroke-width="14"></path>
+<path d="M 120 -20 C 180 180, 240 260, 310 420 S 440 680, 480 820" fill="none" opacity="0.7" stroke="#42655A" stroke-dasharray="8 4" stroke-width="2.5"></path>
+<!-- Secondary feeder ditches -->
+<path d="M 285 360 C 390 380, 490 350, 640 370 S 840 390, 960 360" fill="none" opacity="0.6" stroke="#A8CFC1" stroke-linecap="round" stroke-width="5"></path>
+<path d="M 330 460 C 440 470, 520 540, 680 560 S 890 530, 1020 550" fill="none" opacity="0.6" stroke="#A8CFC1" stroke-linecap="round" stroke-width="4.5"></path>
+</g>
+<!-- Canal Label -->
+<text class="text-[10px] font-technical-label tracking-widest uppercase font-semibold" fill="#2A4D43" transform="rotate(62 210 280)" x="210" y="280">Periyakulam Branch Canal (Feed Line 04)</text>
+<!-- Background Field Parcels (Stable Canopy - Muted Green/Sage #91A995) -->
+<g stroke="#FFFFFF" stroke-width="1.5">
+<!-- Non-cluster ambient farms -->
+<polygon fill="#91A995" fill-opacity="0.38" points="50,60 170,45 190,130 65,145"></polygon>
+<polygon fill="#91A995" fill-opacity="0.45" points="180,45 280,30 300,120 195,130"></polygon>
+<polygon fill="#91A995" fill-opacity="0.4" points="65,150 195,135 220,230 85,250"></polygon>
+<polygon fill="#91A995" fill-opacity="0.5" points="200,135 315,120 335,210 225,230"></polygon>
+<polygon fill="#91A995" fill-opacity="0.42" points="85,255 225,235 245,340 100,360"></polygon>
+<!-- Northern sector farms -->
+<polygon fill="#91A995" fill-opacity="0.38" points="340,70 480,55 510,150 365,170"></polygon>
+<polygon fill="#91A995" fill-opacity="0.48" points="485,55 620,40 645,135 515,150"></polygon>
+<polygon fill="#91A995" fill-opacity="0.35" points="625,40 760,25 780,120 650,135"></polygon>
+<polygon fill="#91A995" fill-opacity="0.42" points="370,175 515,155 540,250 395,270"></polygon>
+<polygon fill="#91A995" fill-opacity="0.45" points="520,155 650,140 675,235 545,250"></polygon>
+<polygon fill="#91A995" fill-opacity="0.5" points="655,140 785,125 810,220 680,235"></polygon>
+<!-- Eastern peripheral plots -->
+<polygon fill="#91A995" fill-opacity="0.35" points="790,125 930,110 955,200 815,218"></polygon>
+<polygon fill="#91A995" fill-opacity="0.42" points="820,225 960,205 985,305 845,320"></polygon>
+<polygon fill="#91A995" fill-opacity="0.38" points="850,325 990,310 1015,410 875,425"></polygon>
+<!-- Southern belt stable plots -->
+<polygon fill="#91A995" fill-opacity="0.45" points="120,490 260,470 280,570 140,590"></polygon>
+<polygon fill="#91A995" fill-opacity="0.48" points="265,470 410,450 430,550 285,570"></polygon>
+<polygon fill="#91A995" fill-opacity="0.36" points="145,595 285,575 305,675 165,695"></polygon>
+<polygon fill="#91A995" fill-opacity="0.5" points="290,575 435,555 455,655 310,675"></polygon>
+<polygon fill="#91A995" fill-opacity="0.42" points="460,560 610,540 635,640 485,660"></polygon>
+<polygon fill="#91A995" fill-opacity="0.46" points="615,540 760,520 785,620 640,640"></polygon>
+<polygon fill="#91A995" fill-opacity="0.4" points="765,520 910,500 935,600 790,620"></polygon>
+</g>
+<!-- TARGET CLUSTER: Cluster 03 — Cumbum Valley Mango Corridor -->
+<!-- Active Selection Halo (fine dashed green/clay outline polygon) -->
+<g>
+<!-- Perimeter halo highlight -->
+<polygon fill="#B66B4C" fill-opacity="0.04" points="370,250 820,200 890,510 440,555" stroke="#183C32" stroke-dasharray="6 4" stroke-width="2"></polygon>
+<polygon fill="none" opacity="0.8" points="366,246 824,196 894,514 436,559" stroke="#B66B4C" stroke-dasharray="3 3" stroke-width="1.2"></polygon>
+<!-- Cluster Tag Label -->
+<g transform="translate(385, 240)">
+<rect fill="#183C32" height="26" rx="4" width="310" x="0" y="0"></rect>
+<text class="text-[11px] font-body-emphasis uppercase tracking-wider font-semibold" fill="#FFFFFF" x="10" y="17">Cluster 03 • Cumbum Valley Mango Corridor</text>
+</g>
+</g>
+<!-- Parcels Inside Cluster 03 -->
+<g stroke="#FFFFFF" stroke-width="2">
+<!-- Stable Parcels inside cluster (Muted Sage) -->
+<polygon fill="#91A995" fill-opacity="0.65" points="380,280 500,265 520,355 400,370"></polygon>
+<polygon fill="#91A995" fill-opacity="0.7" points="505,265 630,250 650,340 525,355"></polygon>
+<polygon fill="#91A995" fill-opacity="0.65" points="635,250 750,235 770,325 655,340"></polygon>
+<polygon fill="#91A995" fill-opacity="0.68" points="395,380 515,365 535,455 415,470"></polygon>
+<polygon fill="#91A995" fill-opacity="0.6" points="760,335 865,320 885,410 780,425"></polygon>
+<polygon fill="#91A995" fill-opacity="0.62" points="745,435 850,420 870,505 765,520"></polygon>
+<!-- AFFECTED PARCELS: 6 parcels showing 'Possible Health Indicator' (Clay #B66B4C tint) -->
+<!-- Parcel Alert 1 -->
+<polygon fill="#B66B4C" fill-opacity="0.45" points="520,365 640,350 660,440 540,455" stroke="#B66B4C" stroke-width="2"></polygon>
+<polygon fill="url(#clayHatch)" points="520,365 640,350 660,440 540,455"></polygon>
+<!-- Parcel Alert 2 -->
+<polygon fill="#B66B4C" fill-opacity="0.4" points="645,350 760,335 780,425 665,440" stroke="#B66B4C" stroke-width="2"></polygon>
+<polygon fill="url(#clayHatch)" points="645,350 760,335 780,425 665,440"></polygon>
+<!-- Parcel Alert 3 (SELECTED: Ravi Orchard Zone 07, 18) -->
+<g id="selectedParcel">
+<polygon fill="#B66B4C" fill-opacity="0.75" points="535,465 660,450 680,540 555,555" stroke="#183C32" stroke-width="3.5"></polygon>
+<!-- Highlight border double rim -->
+<polygon fill="none" points="531,461 664,446 684,544 551,559" stroke="#FFDBCE" stroke-dasharray="4 2" stroke-width="1.5"></polygon>
+</g>
+<!-- Parcel Alert 4 -->
+<polygon fill="#B66B4C" fill-opacity="0.48" points="665,450 780,435 800,520 685,535" stroke="#B66B4C" stroke-width="2"></polygon>
+<polygon fill="url(#clayHatch)" points="665,450 780,435 800,520 685,535"></polygon>
+<!-- Parcel Alert 5 -->
+<polygon fill="#B66B4C" fill-opacity="0.38" points="415,480 535,465 550,545 430,558" stroke="#B66B4C" stroke-width="2"></polygon>
+<polygon fill="url(#clayHatch)" points="415,480 535,465 550,545 430,558"></polygon>
+<!-- Parcel Alert 6 -->
+<polygon fill="#B66B4C" fill-opacity="0.42" points="685,540 805,525 820,600 700,615" stroke="#B66B4C" stroke-width="2"></polygon>
+<polygon fill="url(#clayHatch)" points="685,540 805,525 820,600 700,615"></polygon>
+</g>
+<!-- Selected Farm Pin & HUD Target Callout on Ravi Orchard -->
+<g transform="translate(605, 495)">
+<!-- Pulsing Radar Ring -->
+<circle cx="0" cy="0" fill="none" opacity="0.4" r="18" stroke="#183C32" stroke-width="1.5">
+<animate attributename="r" dur="3s" repeatcount="indefinite" values="12;24;12"></animate>
+<animate attributename="opacity" dur="3s" repeatcount="indefinite" values="0.6;0.1;0.6"></animate>
+</circle>
+<circle cx="0" cy="0" fill="#183C32" r="7" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="0" cy="0" fill="#FFDBCE" r="3"></circle>
+<!-- Floating Label Callout Card for Selected Farm -->
+<g transform="translate(-80, -78)">
+<rect fill="#183C32" filter="url(#subtleGlow)" height="52" rx="6" width="165"></rect>
+<polygon fill="#183C32" points="80,52 86,60 92,52"></polygon>
+<text class="text-[9px] font-technical-label tracking-widest uppercase font-semibold" fill="#FFDBCE" x="10" y="18">Active Selection • 4.2 Ha</text>
+<text class="text-[13px] font-body-emphasis font-bold" fill="#FFFFFF" x="10" y="34">Ravi Orchard</text>
+<text class="text-[10px] font-technical-label" fill="#A8CFC1" x="10" y="46">Zone 07, 18 • Mango (Alphonso)</text>
+</g>
+</g>
+<!-- Farm Identification Markers / Status Badges on Other Key Parcels -->
+<g class="pointer-events-none">
+<!-- Pin 1 - Clay Alert -->
+<circle cx="580" cy="405" fill="#B66B4C" r="4" stroke="#FFFFFF" stroke-width="1.5"></circle>
+<text class="text-[9px] font-technical-label font-semibold" fill="#5D250B" x="590" y="408">P-402 (Devi Agro)</text>
+<!-- Pin 2 - Clay Alert -->
+<circle cx="705" cy="385" fill="#B66B4C" r="4" stroke="#FFFFFF" stroke-width="1.5"></circle>
+<text class="text-[9px] font-technical-label font-semibold" fill="#5D250B" x="715" y="388">P-407 (Vignesh Farm)</text>
+<!-- Pin 3 - Stable -->
+<circle cx="445" cy="325" fill="#42655A" r="4" stroke="#FFFFFF" stroke-width="1.5"></circle>
+<text class="text-[9px] font-technical-label" fill="#202925" x="455" y="328">P-388 • Stable</text>
+<!-- Pin 4 - Stable -->
+<circle cx="565" cy="310" fill="#42655A" r="4" stroke="#FFFFFF" stroke-width="1.5"></circle>
+<text class="text-[9px] font-technical-label" fill="#202925" x="575" y="313">P-391 • Stable</text>
+</g>
+</svg>
+<!-- Map Navigation Controls (Top Right Overlay) -->
+<div class="absolute top-space-md right-space-md flex flex-col gap-1 bg-surface-container-lowest/95 backdrop-blur rounded-xl p-1 shadow-sm z-30 pointer-events-auto">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Zoom in" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<div class="h-[1px] bg-surface-container mx-1"></div>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Zoom out" type="button">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<div class="h-[1px] bg-surface-container mx-1"></div>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Reset View" type="button">
+<span class="material-symbols-outlined text-[18px]">crop_free</span>
+</button>
+</div>
+<!-- Geospatial Legend / Spectral Scale Ribbon (Bottom Left Overlay) -->
+<div class="absolute bottom-space-md left-space-md bg-surface-container-lowest/95 backdrop-blur p-space-sm rounded-xl shadow-sm z-30 flex flex-col gap-space-xs max-w-xs pointer-events-auto">
+<div class="flex items-center justify-between">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant tracking-wider font-semibold">Vegetative Index (NDVI)</span>
+<span class="font-technical-label text-technical-label text-primary font-mono font-medium">0.24 – 0.88</span>
+</div>
+<!-- Continuous Spectral Bar -->
+<div class="w-56 h-2.5 rounded-full overflow-hidden flex bg-surface-container">
+<div class="h-full w-[25%] bg-[#B66B4C]"></div>
+<div class="h-full w-[25%] bg-[#D4A373]"></div>
+<div class="h-full w-[25%] bg-[#91A995]"></div>
+<div class="h-full w-[25%] bg-[#244F43]"></div>
+</div>
+<div class="flex justify-between font-technical-label text-[10px] text-on-surface-variant font-mono">
+<span>&lt;0.35 Alert</span>
+<span>0.55 Stress</span>
+<span>0.72 Normal</span>
+<span>&gt;0.82 Vigorous</span>
+</div>
+<div class="pt-space-xs flex items-center gap-space-md text-[11px] text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded bg-[#91A995] shrink-0"></span>
+<span>18 Stable</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded bg-[#B66B4C] shrink-0"></span>
+<span>6 Requires Validation</span>
+</div>
+</div>
+</div>
+<!-- Map Bottom Tool: Scale & Orientation (Bottom Center-Right) -->
+<div class="absolute bottom-space-md right-space-md bg-surface-container-lowest/95 backdrop-blur px-space-sm py-1.5 rounded-xl shadow-sm z-30 flex items-center gap-space-md pointer-events-auto">
+<!-- Scale Bar -->
+<div class="flex flex-col items-center">
+<div class="flex justify-between w-24 text-[10px] font-technical-label font-mono text-on-surface-variant">
+<span>0</span>
+<span>100m</span>
+<span>200m</span>
+</div>
+<div class="w-24 h-1.5 bg-on-surface flex">
+<div class="w-1/2 h-full bg-surface-container-highest"></div>
+<div class="w-1/2 h-full bg-primary"></div>
+</div>
+</div>
+<div class="h-4 w-[1px] bg-surface-container"></div>
+<!-- Compass Rose -->
+<div class="flex items-center gap-1 text-on-surface-variant" title="North orientation">
+<span class="material-symbols-outlined text-[18px] text-primary">explore</span>
+<span class="font-technical-label text-technical-label font-mono font-bold text-primary">N</span>
+</div>
+<div class="h-4 w-[1px] bg-surface-container"></div>
+<!-- Layer Drawer Quick Toggle -->
+<button class="flex items-center gap-1 font-technical-label text-technical-label text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">layers</span>
+<span>Layers</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 30% Right-Side Analytical Inspection Panel -->
+<div class="w-full lg:w-[30%] h-full bg-surface-container-lowest flex flex-col shadow-xl z-30 overflow-y-auto">
+<!-- Panel Header -->
+<div class="p-space-md bg-surface-container-low shrink-0">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant tracking-widest font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">analytics</span>
+            Selected Area Inspection
+          </span>
+<span class="font-technical-label text-technical-label text-secondary font-mono">CAD-THN-4B</span>
+</div>
+<h2 class="font-section-title text-section-title text-primary tracking-tight">Periyakulam West — Sector 4B</h2>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant">
+<span class="font-technical-label text-technical-label">Theni Agro-climatic Zone VII</span>
+<span>•</span>
+<span class="font-technical-label text-technical-label">14 Total Agrarian Units</span>
+</div>
+</div>
+<!-- Critical Agrarian Alert Banner (Restrained Clay Aesthetic) -->
+<div class="p-space-md shrink-0">
+<div class="bg-[#FFF8F5] rounded-xl p-space-md shadow-xs">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[#B66B4C] text-[22px] shrink-0 mt-0.5">warning</span>
+<div class="flex flex-col">
+<span class="font-technical-label text-technical-label uppercase tracking-widest text-[#B66B4C] font-bold">
+                Potential Health Signals — Requires Validation
+              </span>
+<p class="font-body-secondary text-body-secondary text-on-surface mt-1 leading-relaxed">
+                Sentinel-2 multispectral variance combined with humidity spike flags leaf-canopy anomaly across mango orchards. Physical ground inspection recommended within 48 hours.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Key Telemetry Metrics Grid (2x2) -->
+<div class="px-space-md pb-space-md shrink-0">
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Metric 1 -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Farms Affected</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-metric-value text-metric-value text-[#B66B4C] font-bold">6</span>
+<span class="font-body-secondary text-body-secondary text-on-surface-variant">/ 14 in sector</span>
+</div>
+<span class="font-technical-label text-[10px] text-on-surface-variant block mt-0.5">42.8% spatial footprint</span>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Approx. Area</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-metric-value text-metric-value text-primary font-bold">24</span>
+<span class="font-body-secondary text-body-secondary text-on-surface-variant">acres</span>
+</div>
+<span class="font-technical-label text-[10px] text-on-surface-variant block mt-0.5">9.71 Hectares GIS cadastre</span>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Zones to Inspect</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-metric-value text-metric-value text-primary font-bold">8</span>
+<span class="font-body-secondary text-body-secondary text-on-surface-variant">zones</span>
+</div>
+<span class="font-technical-label text-[10px] text-secondary block mt-0.5 font-medium">GPS Waypoints ready</span>
+</div>
+<!-- Metric 4 with Sparkline -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col justify-between">
+<span class="font-technical-label text-technical-label uppercase text-on-surface-variant">Signal Trend</span>
+<div class="flex items-end justify-between mt-1">
+<div class="flex flex-col">
+<span class="font-body-emphasis text-body-default text-[#B66B4C] font-semibold">+2 zones</span>
+<span class="font-technical-label text-[10px] text-on-surface-variant leading-tight">vs last cycle</span>
+</div>
+<!-- Restrained 4-bar sparkline SVG -->
+<svg class="shrink-0" height="26" viewbox="0 0 46 26" width="46">
+<rect fill="#C1C8C4" height="10" rx="1.5" width="7" x="2" y="16"></rect>
+<rect fill="#C1C8C4" height="13" rx="1.5" width="7" x="13" y="13"></rect>
+<rect fill="#B66B4C" fill-opacity="0.6" height="17" rx="1.5" width="7" x="24" y="9"></rect>
+<rect fill="#B66B4C" height="23" rx="1.5" width="7" x="35" y="3"></rect>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Focused Parcel Context: Ravi Orchard -->
+<div class="px-space-md pb-space-md shrink-0">
+<div class="bg-surface-container p-space-md rounded-xl shadow-xs">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-technical-label text-technical-label uppercase text-primary font-semibold tracking-wider">Primary Inspected Parcel</span>
+<span class="px-space-xs py-0.5 rounded bg-primary text-on-primary font-technical-label text-[10px] font-mono">ZONE 07, 18</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-body-emphasis text-body-emphasis text-on-surface font-semibold">Ravi Orchard (4.2 Ha)</h3>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant">Farmer: R. Ravichandran • Patta No. 1104</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[22px]">verified_user</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-technical-label text-technical-label">
+<span>Mean NDVI: <strong class="text-on-surface font-mono">0.42</strong> (Prev: 0.68)</span>
+<span class="text-[#B66B4C] font-semibold">↓ 38% Drop</span>
+</div>
+</div>
+</div>
+<!-- Diagnostic Signal Breakdown (Agronomic Ground Truth) -->
+<div class="px-space-md flex-1">
+<h4 class="font-technical-label text-technical-label uppercase text-on-surface-variant tracking-wider font-semibold mb-space-sm">
+          Signal Diagnostic Breakdown
+        </h4>
+<div class="space-y-space-sm">
+<!-- Signal 1 -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded bg-primary-container text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[15px]">satellite</span>
+</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-emphasis text-body-secondary text-on-surface">Canopy Spectral Reflectance Variance</span>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant mt-0.5">
+                Sentinel-2 NIR/Red (B8/B4) ratio deficit: <span class="font-mono text-error font-medium">-14.2%</span> against seasonal 5-year baseline. Indicates chlorophyll degradation.
+              </p>
+</div>
+</div>
+<!-- Signal 2 -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded bg-surface-container-high text-[#B66B4C] flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[15px]">photo_camera</span>
+</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-body-emphasis text-body-secondary text-on-surface">Ground Observation Match</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed font-technical-label text-[10px] font-semibold">2 PHOTOS</span>
+</div>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant mt-0.5">
+                Field extension portal received 2 farmer uploads reporting severe apical leaf curl and premature floral drop on Alphonso grafts.
+              </p>
+</div>
+</div>
+<!-- Signal 3 -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded bg-secondary-container text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[15px]">device_thermostat</span>
+</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-emphasis text-body-secondary text-on-surface">Microclimate Aggravator</span>
+<p class="font-body-secondary text-body-secondary text-on-surface-variant mt-0.5">
+                Theni AWS recorded relative humidity spike to <span class="font-mono text-primary font-semibold">84%</span> following 28mm unseasonal rain shower 48h ago. Mildew risk elevated.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer Panel (Desktop Docked Controls) -->
+<div class="p-space-md bg-surface-container-low mt-auto shrink-0 shadow-sm flex flex-col gap-space-xs">
+<!-- Primary Action Button -->
+<button class="w-full h-10 px-space-md bg-primary-container text-on-primary font-body-emphasis text-body-secondary rounded-xl flex items-center justify-center gap-space-xs hover:bg-primary transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">assignment_turned_in</span>
+<span>Generate District Field Inspection Order</span>
+</button>
+<!-- Secondary Action Button -->
+<button class="w-full h-9 px-space-md bg-surface-container-lowest text-primary font-body-emphasis text-body-secondary rounded-xl flex items-center justify-center gap-space-xs hover:bg-surface-container transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">download</span>
+<span>Export Parcel Coordinates (.KML / .GeoJSON)</span>
+</button>
+<!-- Link Out to Parcels Detailed View -->
+<div class="pt-space-xs text-center">
+<a class="inline-flex items-center gap-1 font-body-emphasis text-body-secondary text-secondary hover:text-primary transition-colors group" href="#">
+<span>View Individual Farm Parcels (6 flagged in Sector 4B)</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
